@@ -27,28 +27,23 @@
 	<!-- start nav -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="index.html" style="color: #1F2532;"><span style="color: #B40C0C;" class="nav-brand-two">You</span>Meubles</a> 
+			<a class="navbar-brand" href="index.html" style="color: #6c757d;"><span style="color: #0275d8;" class="nav-brand-two">You</span>Contact</a> 
             <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					
-					<li class="nav-item">
-						<a class="nav-link navigation" href="about.html">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link ml-5 navigation" href="contact.html" >Contact</a>
-					</li>
+<!-- 				
 					<li class="nav-item">
 						<form class="d-flex" style="padding-top: 5px;">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                           </form>
+					</li> -->
+                    <li class="nav-item">
+						<a class="nav-link ml-5 btn-auth"  href="login.html" >login</a>
 					</li>
                     <li class="nav-item">
-						<a class="nav-link ml-5 navigation" href="login.html" >login</a>
-					</li>
-                    <li class="nav-item">
-						<a class="nav-link ml-5 navigation" href="singUp.html" >register</a>
+						<a class="nav-link ml-5 btn-auth" href="singUp.html" >register</a>
 					</li>
 				</ul>
 			</div>
@@ -56,7 +51,73 @@
 	</nav>
 	<!-- end nav -->
 
-    
+
+
+    <!-- ------------------- -->
+<main>
+<h1 class='text-center'>Liste des Contacts</h1>
+    <table class="container table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Profil</th>
+      <th scope="col">Name</th>
+      <th scope="col">Telephone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Edit/Delete</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <th scope="row">1</th>
+      <td><i class="fa-solid fa-user"></i></td>
+      <td>Ali</td>
+      <td>0645231734</td>
+      <td>ali@gmail.com</td>
+      <td>youssoufia maroc</td>
+      <td>
+        <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+        <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+      </td>
+      
+    </tr>
+
+    <tr>
+      <th scope="row">2</th>
+      <td><i class="fa-solid fa-user"></i></td>
+      <td>Ali</td>
+      <td>0645231734</td>
+      <td>ali@gmail.com</td>
+      <td>youssoufia maroc</td>
+      <td>
+        <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+        <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+      </td>
+     
+      
+    </tr>
+
+    <tr>
+      <th scope="row">3</th>
+      <td><i class="fa-solid fa-user"></i></td>
+      <td>Ali</td>
+      <td>0645231734</td>
+      <td>ali@gmail.com</td>
+      <td>youssoufia maroc</td>
+      <td>
+        <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
+        <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+</main>
+
 
 
 
