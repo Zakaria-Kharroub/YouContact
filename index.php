@@ -1,7 +1,6 @@
 <?php
 include 'connect.php';
 
-// Requête pour récupérer tous les contacts
 $query = "SELECT * FROM Contact";
 $result = mysqli_query($conn, $query);
 
@@ -14,15 +13,26 @@ $result = mysqli_query($conn, $query);
   
 <?php include 'navbar.php'; ?>
 
-
-
-    <!-- ------------------- -->
+  <!-- ------------------- -->
 <main class='container'>
-<h1 class='text-center'>Liste des Contacts</h1>
+
+
+<h1 class='text-center mt-4'>Liste des Contacts</h1>
+<!-- Button trigger modal -->
+<div class="btn-ajout-modal" style="margin-top: 20px;display:flex;justify-content: center;">
+ 
+  <button type="button" class="btn btn-success mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  ajouter contact
+  </button>
+</div>
+
+
+
+
     <table class="container table mt-5">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+      <!-- <th scope="col">ID</th> -->
       <th scope="col">Profil</th>
       <th scope="col">Name</th>
       <th scope="col">Telephone</th>
@@ -37,7 +47,7 @@ $result = mysqli_query($conn, $query);
         <?php
             while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td>" . $row['ContactID'] . "</td>";
+            // echo "<td>" . $row['ContactID'] . "</td>";
             echo "<td><i class='fa-solid fa-user'></i></td>";
             echo "<td>" . $row['Nom'] . "</td>";
             echo "<td>" . $row['telephone'] . "</td>";
@@ -52,11 +62,51 @@ $result = mysqli_query($conn, $query);
                 ?>
             </tbody>
 </table>
-<center>
-<div class='mt-5'>
+
+<!-- <div class='mt-5'>
 <button type="button" class="btn btn-success">Ajouter un contact</button>
-</div>
-</center>
+</div> -->
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nouveau contact</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="insert.php" method="POST">
+                    <div class="modal-body">
+                        <!-- Formulaire pour ajouter un contact -->
+                        <div class="mb-3">
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="nom" name="Nom" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telephone" class="form-label">Téléphone</label>
+                            <input type="tel" class="form-control" id="telephone" name="telephone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="adresse" class="form-label">Adresse</label>
+                            <input type="text" class="form-control" id="adresse" name="Adress" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 </main>
 
@@ -89,3 +139,6 @@ $result = mysqli_query($conn, $query);
       </td>
       
     </tr> -->
+
+
+
