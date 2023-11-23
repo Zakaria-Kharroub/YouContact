@@ -7,11 +7,11 @@ $result = mysqli_query($conn, $query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'head.php' ?>
+<?php include 'layout/head.php' ?>
 
-<body>
+<body >
   
-<?php include 'navbar.php'; ?>
+<?php include 'layout/navbar.php'; ?>
 
   <!-- ------------------- -->
 <main class='container'>
@@ -21,15 +21,15 @@ $result = mysqli_query($conn, $query);
 <!-- Button trigger modal -->
 <div class="btn-ajout-modal" style="margin-top: 20px;display:flex;justify-content: center;">
  
-  <button type="button" class="btn btn-success mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button type="button" class="btn btn-success m-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
   ajouter contact
   </button>
 </div>
 
 
 
-
-    <table class="container table mt-5">
+<div style="height: 470px; overflow: scroll;">
+<table class="container table mt-5" >
   <thead>
     <tr>
       <!-- <th scope="col">ID</th> -->
@@ -53,15 +53,31 @@ $result = mysqli_query($conn, $query);
             echo "<td>" . $row['telephone'] . "</td>";
             echo "<td>" . $row['Email'] . "</td>";
             echo "<td>" . $row['Adresse'] . "</td>";
-            echo "<td>
-                  <button type='button' class='btn btn-primary'><i class='fa-solid fa-pen-to-square'></i></button>
-                  <button type='button' class='btn btn-danger'><i class='fa-solid fa-trash'></i></button>
-                  </td>";
-                  echo "</tr>";
-                }
-                ?>
+
+            echo "
+            <td class='d-flex'>
+
+            <form method='post' >
+                <input type='hidden' name='contactID' value='" . $row['ContactID'] . "'>
+                <button type='submit' class='btn btn-primary'><i class='fa-solid fa-pen-to-square'></i></button>
+            </form>
+
+            
+            <form action='delete.php' method='post'class='ms-2'>
+                <input type='hidden' name='contactID' value='" . $row['ContactID'] . "'>
+                <button type='submit' class='btn btn-danger'><i class='fa-solid fa-trash'></i></button>
+            </form>
+            </td>";
+
+            echo "</tr>";
+
+              }
+              ?>
             </tbody>
 </table>
+
+</div>
+
 
 <!-- <div class='mt-5'>
 <button type="button" class="btn btn-success">Ajouter un contact</button>
@@ -72,51 +88,48 @@ $result = mysqli_query($conn, $query);
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Nouveau contact</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="insert.php" method="POST">
-                    <div class="modal-body">
-                        <!-- Formulaire pour ajouter un contact -->
-                        <div class="mb-3">
-                            <label for="nom" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="nom" name="Nom" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="Email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="telephone" class="form-label">Téléphone</label>
-                            <input type="tel" class="form-control" id="telephone" name="telephone" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="adresse" class="form-label">Adresse</label>
-                            <input type="text" class="form-control" id="adresse" name="Adress" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Ajouter</button>
-                    </div>
-                </form>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nouveau contact</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form action="insert.php" method="POST">
+                <div class="modal-body">
+                   
+                    <div >
+                        <label for="UserID" class="form-label">UserID</label>
+                        <input type="number" class="form-control" id="UserID" name="UserID" required>
+                    </div>
+                    <div >
+                        <label for="nom" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="nom" name="Nom" required>
+                    </div>
+                    <div >
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="Email" required>
+                    </div>
+                    <div >
+                        <label for="telephone" class="form-label">Téléphone</label>
+                        <input type="tel" class="form-control" id="telephone" name="telephone" required>
+                    </div>
+                    <div >
+                        <label for="adresse" class="form-label">Adresse</label>
+                        <input type="text" class="form-control" id="adresse" name="Adress" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary">reset</button>
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                </div>
+            </form>
         </div>
     </div>
-
+</div>
 
 </main>
 
 
-
-
-
-<!-- start footer -->
-
-<!--end footer  -->
 
     
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
