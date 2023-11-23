@@ -17,7 +17,7 @@ $result = mysqli_query($conn, $query);
 <main class='container'>
 
 
-<h1 class='text-center mt-3'>Liste des Contacts</h1>
+<h1 class='text-center'>Liste des Contacts</h1>
 <!-- Button trigger modal -->
 <div class="btn-ajout-modal" style="margin-top: 20px;display:flex;justify-content: center;">
  
@@ -56,23 +56,65 @@ $result = mysqli_query($conn, $query);
 
             echo "
             <td class='d-flex'>
-
-            <form method='post' >
-                <input type='hidden' name='contactID' value='" . $row['ContactID'] . "'>
-                <button type='submit' class='btn btn-primary'><i class='fa-solid fa-pen-to-square'></i></button>
-            </form>
-
-            
+                <button type='submit' class='btn btn-primary' style='height: 40px;' data-bs-toggle='modal' data-bs-target='#exampleModal{$row['ContactID']}'><i class='fa-solid fa-pen-to-square'></i></button>
             <form action='delete.php' method='post'class='ms-2'>
                 <input type='hidden' name='contactID' value='" . $row['ContactID'] . "'>
-                <button type='submit' class='btn btn-danger'><i class='fa-solid fa-trash'></i></button>
+                <button type='submit' name='deletebtn' class='btn btn-danger' style='height: 40px;'><i class='fa-solid fa-trash'></i></button>
             </form>
             </td>";
 
             echo "</tr>";
 
-              }
               ?>
+
+<!-- modal update -->
+<div class="modal fade" id="exampleModal<?=$row['ContactID'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nouveau contact</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="update.php?id=<?=$row['ContactID'] ?>" method="POST">
+            <!-- <form action="update.php?contactID=<?=$row['ContactID']?>" method="POST"> -->
+                <div class="modal-body">
+                   <!-- user id -->
+
+                    <!-- name -->
+                    <div >
+                        <label for="nom" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="nom" name="Nom" value='<?=$row['Nom'] ?>' required>
+                    </div>
+
+                    <!-- email -->
+                    <div >
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="Email" value='<?=$row['Email'] ?>' required>
+                    </div>
+
+                    <!-- email -->
+                    <div >
+                        <label for="telephone" class="form-label">Téléphone</label>
+                        <input type="tel" class="form-control" id="telephone" name="telephone" value='<?=$row['telephone'] ?>' required>
+                    </div>
+
+                    <!-- adress -->
+                    <div >
+                        <label for="adresse" class="form-label">Adresse</label>
+                        <input type="text" class="form-control" id="adresse" name="Adress" value='<?=$row['Adresse'] ?>' required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary">effacer</button>
+                    <button type="submit" name='ok' class="btn btn-primary">update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+              
+              <?php } ?>
             </tbody>
 </table>
 
@@ -96,23 +138,31 @@ $result = mysqli_query($conn, $query);
             </div>
             <form action="insert.php" method="POST">
                 <div class="modal-body">
-                   
+                   <!-- user id -->
                     <div >
                         <label for="UserID" class="form-label">UserID</label>
                         <input type="number" class="form-control" id="UserID" name="UserID" required>
                     </div>
+
+                    <!-- name -->
                     <div >
                         <label for="nom" class="form-label">Nom</label>
                         <input type="text" class="form-control" id="nom" name="Nom" required>
                     </div>
+
+                    <!-- email -->
                     <div >
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="Email" required>
                     </div>
+
+                    <!-- email -->
                     <div >
                         <label for="telephone" class="form-label">Téléphone</label>
                         <input type="tel" class="form-control" id="telephone" name="telephone" required>
                     </div>
+
+                    <!-- adress -->
                     <div >
                         <label for="adresse" class="form-label">Adresse</label>
                         <input type="text" class="form-control" id="adresse" name="Adress" required>
@@ -120,7 +170,7 @@ $result = mysqli_query($conn, $query);
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary">reset</button>
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                    <button type="submit" name='ok' class="btn btn-primary">Ajouter</button>
                 </div>
             </form>
         </div>
