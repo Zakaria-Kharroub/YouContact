@@ -17,11 +17,11 @@ $result = mysqli_query($conn, $query);
 <main class='container'>
 
 
-<h1 class='text-center mt-4'>Liste des Contacts</h1>
+<h1 class='text-center mt-3'>Liste des Contacts</h1>
 <!-- Button trigger modal -->
 <div class="btn-ajout-modal" style="margin-top: 20px;display:flex;justify-content: center;">
  
-  <button type="button" class="btn btn-success m-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
   ajouter contact
   </button>
 </div>
@@ -29,7 +29,7 @@ $result = mysqli_query($conn, $query);
 
 
 <div style="height: 470px; overflow: scroll;">
-<table class="container table mt-5" >
+<table class="container table mt-4" >
   <thead>
     <tr>
       <!-- <th scope="col">ID</th> -->
