@@ -30,7 +30,7 @@ $result = mysqli_query($conn, $query);
 
 <div style="height: 470px; overflow: scroll;">
 <table class="container table mt-4" >
-  <thead>
+  <thead  class="bg-secondary text-light" style="position: -webkit-sticky; position: sticky; top: 0;">
     <tr>
       <!-- <th scope="col">ID</th> -->
       <th scope="col">Profil</th>
