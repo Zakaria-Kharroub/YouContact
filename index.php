@@ -75,7 +75,7 @@ $result = mysqli_query($conn, $query);
                 <h5 class="modal-title" id="exampleModalLabel">Nouveau contact</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="update.php?id=<?=$row['ContactID'] ?>" method="POST">
+            <form action="update.php?contactid=<?=$row['ContactID'] ?>" method="POST">
             <!-- <form action="update.php?contactID=<?=$row['ContactID']?>" method="POST"> -->
                 <div class="modal-body">
                    <!-- user id -->

@@ -2,7 +2,7 @@
 include 'connect.php';
 
 if(isset($_POST['ok'])) {
-    $contactID = $_GET['contactID'];
+    $contactID = $_GET['contactid'];
     $nom = $_POST['Nom'];
     $email = $_POST['Email'];
     $telephone = $_POST['telephone'];
