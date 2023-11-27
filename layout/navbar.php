@@ -2,7 +2,7 @@
 	<!-- start nav -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="index.html" style="color: #6c757d;"><span style="color: #0275d8;" class="nav-brand-two">You</span>Contact</a> 
+			<a class="navbar-brand" href="index.php" style="color: #6c757d;"><span style="color: #0275d8;" class="nav-brand-two">You</span>Contact</a> 
             <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -15,10 +15,10 @@
                           </form>
 					</li> -->
                     <li class="nav-item">
-						<a class="nav-link ml-5 btn-auth"  href="login.html" >login</a>
+						<a class="nav-link ml-5 btn-auth"  href="login.php" >login</a>
 					</li>
                     <li class="nav-item">
-						<a class="nav-link ml-5 btn-auth" href="singUp.html" >register</a>
+						<a class="nav-link ml-5 btn-auth" href="register.php" >register</a>
 					</li>
 				</ul>
 			</div>
