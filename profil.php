@@ -24,7 +24,7 @@ if(!isset($_SESSION['id'])){
   <div class="card p-4"> 
     <div class="image d-flex flex-column justify-content-center align-items-center"> 
       <button class="btn btn-secondary"> 
-        <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
+        <img src="./images/avatar.png" height="100" width="100" />
       </button> 
       <h1 class="name mt-3"><?php echo $_SESSION['name'];?></h1> 
       
@@ -37,7 +37,7 @@ if(!isset($_SESSION['id'])){
         <button class="btn1 btn-dark">Modifier le profil</button> 
       </div> 
       <div class="text mt-3"> 
-        <span>walid samikr est une créatrice de graphiques minimalistes et audacieux ainsi que d'œuvres numériques.<br></span> 
+        <span>walid samikr est une créateur de graphiques minimalistes et audacieux ainsi que d'œuvres numériques.<br></span> 
       </div> 
       <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> 
         <h4><i class="fa-brands fa-facebook"></i></h4> 
