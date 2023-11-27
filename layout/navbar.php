@@ -14,12 +14,24 @@
                             <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                           </form>
 					</li> -->
-                    <li class="nav-item">
-						<a class="nav-link ml-5 btn-auth"  href="login.php" >login</a>
-					</li>
-                    <li class="nav-item">
-						<a class="nav-link ml-5 btn-auth" href="register.php" >register</a>
-					</li>
+					<?php
+					if(isset($_SESSION['id'])){
+						echo '<li class="nav-item">
+						          <a class="nav-link ml-5 btn-auth" href="logout.php">Logout</a>
+					         </li>
+							 <li class="nav-item">
+						          <a class="nav-link ml-5 btn-auth" href="profil.php">profil</a>
+					         </li>';
+					} else
+					echo'<li class="nav-item">
+					<a class="nav-link ml-5 btn-auth"  href="login.php" >login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ml-5 btn-auth" href="register.php" >register</a>
+				</li>';
+
+					?>
+                    
 				</ul>
 			</div>
 		</div>

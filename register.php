@@ -49,7 +49,7 @@ if (isset($_POST['ok'])) {
         exit();
     }
 
-    $MotDePasseHash = password_hash($MotDePasse, PASSWORD_DEFAULT);
+    $MotDePasseHash = md5($MotDePasse);
 
     $dateInscri = date('y-m-d');
 
@@ -61,7 +61,7 @@ if (isset($_POST['ok'])) {
         $_SESSION['NomUtilisateur'] = $NomUtilisateur;
         $_SESSION['Email'] = $Email;
 
-        header("Location: index.php");
+        header("Location: login.php");
     } else {
         echo "Erreur : " . mysqli_error($conn);
     }
@@ -129,6 +129,8 @@ if (isset($_POST['ok'])) {
   
 
     
-
+<?php
+include ('layout/footer.php');
+?>
 </body>
 </html>

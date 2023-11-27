@@ -5,36 +5,30 @@ session_start();
 
 if (isset($_POST["ok"])) {
   $Email = $_POST["Email"];
-  $MotDePasse = password_hash(($_POST["MotDePasse"]), PASSWORD_DEFAULT);
+  $pass=$_POST["MotDePasse"];
+  $MotDePasse =md5($pass);
   $sqlRequette = "SELECT * FROM utilisateur WHERE Email='$Email' and MotDePasse = '$MotDePasse'";
   $result = mysqli_query($conn, $sqlRequette);
-
+ 
   if (!$result) {
       header("Location:register.php");
       exit();
   } else {
-    echo 'test';
       if (mysqli_num_rows($result) > 0) {
-          $user = mysqli_fetch_assoc($result);
-
-              $_SESSION['UserID'] = $user["UserID"];
-              header('Location:index.php' );
-              exit(); 
-
+        $row=mysqli_fetch_assoc($result);
+        $_SESSION['id']=$row['UserID'];
+        $_SESSION['name']=$row['NomUtilisateur'];
+        $_SESSION['Email']=$row['Email'];
+        $_SESSION['dateInscri']=$row['dateInscri'];
+        header('Location:index.php' );
+        exit(); 
       } else {
           echo "User not found";
       }
   }
 }
 ?>
-
-
-
-
-
-
-
-
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,6 +108,8 @@ if (isset($_POST["ok"])) {
     
 
     
-
+    <?php
+include ('layout/footer.php');
+?>
 </body>
 </html>

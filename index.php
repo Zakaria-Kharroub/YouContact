@@ -1,7 +1,11 @@
 <?php
 include 'connect.php';
-
-$query = "SELECT * FROM Contact";
+session_start();
+if(!isset($_SESSION['id'])){
+    header('location:login.php');
+}
+$id=$_SESSION['id'];
+$query = "SELECT * FROM Contact where UserID = $id";
 $result = mysqli_query($conn, $query);
 
 ?>
@@ -18,7 +22,7 @@ $result = mysqli_query($conn, $query);
 
 
 <h1 class='text-center'>Liste des Contacts</h1>
-<!-- Button trigger modal -->
+<!-- Button  modal -->
 <div class="btn-ajout-modal" style="margin-top: 20px;display:flex;justify-content: center;">
  
   <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -45,6 +49,7 @@ $result = mysqli_query($conn, $query);
   </thead>
   <tbody>
         <?php
+
             while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             // echo "<td>" . $row['ContactID'] . "</td>";
@@ -121,12 +126,6 @@ $result = mysqli_query($conn, $query);
 </div>
 
 
-<!-- <div class='mt-5'>
-<button type="button" class="btn btn-success">Ajouter un contact</button>
-</div> -->
-
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -138,11 +137,8 @@ $result = mysqli_query($conn, $query);
             </div>
             <form action="insert.php" method="POST">
                 <div class="modal-body">
-                   <!-- user id -->
-                    <div >
-                        <label for="UserID" class="form-label">UserID</label>
-                        <input type="number" class="form-control" id="UserID" name="UserID" required>
-                    </div>
+                  
+                   
 
                     <!-- name -->
                     <div >
@@ -188,20 +184,6 @@ $result = mysqli_query($conn, $query);
 </html>
 
 
-
-  <!-- <tr>
-      <th scope="row">1</th>
-      <td><i class="fa-solid fa-user"></i></td>
-      <td>Ali</td>
-      <td>0645231734</td>
-      <td>ali@gmail.com</td>
-      <td>youssoufia maroc</td>
-      <td>
-        <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button>
-        <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-      </td>
-      
-    </tr> -->
 
 
 
